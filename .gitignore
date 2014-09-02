@@ -1,0 +1,6 @@
+.idea
+bower
+node_modules
+public
+less/*.css
+ng-app-template.iml
