@@ -20,10 +20,7 @@
     'blockUI',
 
     // app modules
-    'lodash',
-    'moment',
     'common',
-    'exception',
     'data',
     'bootstrapWidgets',
 
@@ -34,6 +31,4 @@
     'home',
     'bootstrap-widgets-demo'
     ]);
-
-
 }());

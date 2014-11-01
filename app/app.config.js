@@ -10,9 +10,9 @@
     'localStorageServiceProvider',
     'authInterceptorServiceProvider',
     'serverErrorServiceProvider',
-    'blockUIConfigProvider'];
+    'blockUIProvider'];
 
-  function config($httpProvider, $urlRouterProvider, cfpLoadingBarProvider, localStorageServiceProvider, authInterceptorServiceProvider, serverErrorServiceProvider, blockUIConfigProvider) {
+  function config($httpProvider, $urlRouterProvider, cfpLoadingBarProvider, localStorageServiceProvider, authInterceptorServiceProvider, serverErrorServiceProvider, blockUIProvider) {
 
     authInterceptorServiceProvider.setLocationOnStatus('/auth-error', 401);
 
@@ -25,7 +25,7 @@
     // TODO : Set the prefix for local storage
     // localStorageServiceProvider.setPrefix('newPrefix');
 
-    blockUIConfigProvider.message('working...');
+    blockUIProvider.message = 'working...';
     $urlRouterProvider.otherwise('/home');
   }
 }());

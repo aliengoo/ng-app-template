@@ -3,12 +3,13 @@
 
   angular.module('bootstrap-widgets-demo').controller('BootstrapWidgetsDemo', BootstrapWidgetDemo);
 
-  function BootstrapWidgetDemo() {
-    /* jshint validthis: true */
-    var vm = this;
+  BootstrapWidgetDemo.$inject = ['$scope', 'customerModelService'];
 
-    vm.title = 'Mr';
-    vm.gender = 'male';
+  function BootstrapWidgetDemo($scope, customerModelService) {
+    var customer = customerModelService.createInstance($scope);
+
+    customer.title = 'Mr';
+    customer.gender = 'male';
   }
 
 }());

@@ -3,9 +3,10 @@
 
   angular.module('app').controller('App', App);
 
-  App.$inject = ['$scope'];
-
-  function App($scope) {
+  function App() {
     // TODO : Place something exciting here...
+    var vm = this;
+
+    vm.applicationName = 'My App';
   }
 }());

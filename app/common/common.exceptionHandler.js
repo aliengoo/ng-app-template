@@ -1,7 +1,7 @@
 (function(){
   "use strict";
 
-  angular.module('exception').config(exceptionConfig);
+  angular.module('common').config(exceptionConfig);
 
   exceptionConfig.$inject = ['$provide'];
 
@@ -27,7 +27,9 @@
        * throw exception;
        */
 
-      $injector.get('toastr').error(exception.msg, errorData);
+      console.log(errorData);
+
+      $injector.get('toastr').error(exception.message, "Error!");
     };
   }
 
