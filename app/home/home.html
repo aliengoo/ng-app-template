@@ -1,5 +1,13 @@
+<bw-navbar>
+  <brand>NgTemplate</brand>
+  <state name="home">Home</state>
+  <state name="bootstrap-widgets-demo">Bootstrap</state>
+</bw-navbar>
+
+
 <div class="container">
-  <header class="page-header">
-    <h1 class="text-center">Home</h1>
+  <header class="text-center">
+    <h1 ng-hide="vm.message">Checking SignalR is working <i class="fa fa-spinner fa-spin"></i></h1>
+    <h1 ng-show="vm.message">{{vm.message}}</h1>
   </header>
 </div>

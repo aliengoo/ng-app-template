@@ -1,25 +1,94 @@
 module.exports = function (grunt) {
 
+  var vendor_body = [
+    'bower/jquery/dist/jquery.min.js',
+    'bower/lodash/dist/lodash.min.js',
+    'bower/momentjs/min/moment.min.js',
+    'bower/stringjs/lib/string.min.js',
+    'bower/bootstrap/dist/js/bootstrap.min.js',
+    'bower/angular/angular.js',
+    'bower/angular-i18n/angular-locale_en-gb.js',
+    'bower/angular-animate/angular-animate.min.js',
+    'bower/angular-cookies/angular-cookies.min.js',
+    'bower/angular-resource/angular-resource.min.js',
+    'bower/angular-ui-utils/ui-utils.min.js',
+    'bower/angular-ui-router/release/angular-ui-router.min.js',
+    'bower/angular-bootstrap/ui-bootstrap-tpls.min.js',
+    'bower/greensock/src/minified/TweenMax.min.js',
+    'bower/ng-Fx/dist/ngFx.min.js',
+    'bower/angular-loading-bar/build/loading-bar.min.js',
+    'bower/angular-hotkeys/build/hotkeys.min.js',
+    'bower/angular-local-storage/angular-local-storage.min.js',
+    'bower/signalr/jquery.signalR.min.js',
+    'bower/select2/select2.min.js',
+    'bower/angular-ui-select2/src/select2.js',
+    'bower/angular-block-ui/dist/angular-block-ui.min.js',
+    'bower/angular-toastr/dist/angular-toastr.min.js'
+  ];
+
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
+
     concat: {
       options: {
-        separator: ';',
+        separator: ';\n',
         stripBanners: true
       },
       app: {
         files: {
-          'public/js/app.concat.js': ['app/*.js', 'app/**/*.js', 'app/**/**/*.js', 'app/**/**/**/*.js']
+          'public/js/app.concat.js': [
+            'app/JSON/*.module.js',
+            'app/JSON/*.js',
+            'app/moment/*.module.js',
+            'app/moment/*.js',
+            'app/lodash/*.module.js',
+            'app/lodash/*.js',
+            'app/common/*.module.js',
+            'app/common/*.js',
+            'app/logger/*.module.js',
+            'app/logger/*.js',
+            'app/exception/*.module.js',
+            'app/exception/*.js',
+            'app/auth/*.module.js',
+            'app/auth/*.auth-interceptor-service.js',
+            'app/auth/*.js',
+            'app/signalR/*.module.js',
+            'app/signalR/*.js',
+            'app/app-config/*.module.js',
+            'app/app-config/*.js',
+            'app/data/*.module.js',
+            'app/data/*.js',
+            'app/bootstrap-widgets/*.module.js',
+            'app/bootstrap-widgets/*.js',
+            'app/app.module.js',
+            'app/*.js',
+            'app/**/*.module.js',
+            'app/**/*.js',
+            'app/**/**/*.js',
+            'app/**/**/**/*.js']
+        }
+      },
+      // remember - use the MINIFIED versions of the files
+      vendor_body: {
+        files: {
+          'public/js/vendor-body.js': vendor_body
+        }
+      },
+      vendor_header: {
+        files: {
+          'public/js/vendor-header.js': [
+            'bower/modernizr/modernizr.js'
+          ]
         }
       }
     },
-    ngtemplates:  {
-      app:        {
-        cwd:      'app',
-        src:      ['**/*.html', '**/**/*.html', '**/**/**/*.html', '**/**/**/**/*.html'],
-        dest:     'public/js/app.templates.js',
-        options:    {
-          htmlmin:  { collapseWhitespace: true, collapseBooleanAttributes: true }
+    ngtemplates: {
+      app: {
+        cwd: 'app',
+        src: ['**/*.html', '**/**/*.html', '**/**/**/*.html', '**/**/**/**/*.html'],
+        dest: 'public/js/app.templates.js',
+        options: {
+          htmlmin: { collapseWhitespace: true, collapseBooleanAttributes: true }
         }
       }
     },
@@ -37,43 +106,10 @@ module.exports = function (grunt) {
             'bower/select2-bootstrap3-css/select2-bootstrap.css',
             'bower/angular-ui-select2/docs/styles.css',
             'bower/angular-block-ui/angular-block-ui.min.css',
+            'bower/angular-toastr/dist/angular-toastr.min.css',
             'less/style.css'
           ]
         }
-      }
-    },
-    uglify: {
-      vendor_header: {
-        src: ['bower/modernizr/modernizr.js'],
-        dest: 'public/js/vendor-header.js'
-      },
-      vendor_body: {
-        src: [
-          'bower/jquery/dist/jquery.min.js',
-          'bower/lodash/dist/lodash.min.js',
-          'bower/momentjs/min/moment.min.js',
-          'bower/stringjs/lib/string.min.js',
-          'bower/toastr/toastr.min.js',
-          'bower/angular/angular.min.js',
-          'bower/angular-i18n/angular-locale_en-gb.js',
-          'bower/angular-animate/angular-animate.min.js',
-          'bower/angular-cookies/angular-cookies.min.js',
-          'bower/angular-resource/angular-resource.min.js',
-          'bower/angular-socket-io/socket.min.js',
-          'bower/angular-ui-utils/ui-utils.min.js',
-          'bower/angular-ui-router/release/angular-ui-router.min.js',
-          'bower/angular-bootstrap/ui-bootstrap-tpls.min.js',
-          'bower/greensock/src/minified/TweenMax.min.js',
-          'bower/ng-Fx/dist/ngFx.min.js',
-          'bower/angular-loading-bar/build/loading-bar.min.js',
-          'bower/angular-hotkeys/build/hotkeys.min.js',
-          'bower/angular-local-storage/angular-local-storage.min.js',
-          'bower/signalr/jquery.signalR.min.js',
-          'bower/select2/select2.min.js',
-          'bower/angular-ui-select2/src/select2.js',
-          'bower/angular-block-ui/dist/angular-block-ui.min.js'
-        ],
-        dest: 'public/js/vendor-body.js'
       }
     },
     copy: {
@@ -82,6 +118,14 @@ module.exports = function (grunt) {
           {
             expand: true,
             cwd: 'bower/font-awesome/fonts/',
+            src: ['**'],
+            dest: 'public/fonts/',
+            flatten: true,
+            filter: 'isFile'
+          },
+          {
+            expand: true,
+            cwd: 'bower/bootstrap/dist/fonts/',
             src: ['**'],
             dest: 'public/fonts/',
             flatten: true,
@@ -117,6 +161,9 @@ module.exports = function (grunt) {
     },
     less: {
       app: {
+        options: {
+          paths: ['bower/bootstrap/less', 'less']
+        },
         files: {
           "bower/bootstrap/less/bootstrap.css": "bower/bootstrap/less/bootstrap.less",
           "bower/font-awesome/less/font-awesome.css": "bower/font-awesome/less/font-awesome.less",
@@ -124,10 +171,27 @@ module.exports = function (grunt) {
         }
       }
     },
+    concurrent: {
+      preFlight: {
+        tasks: ['jshint', 'less:app'],
+        options: {
+          logConcurrentOutput: true
+        }
+      },
+      liftOff: {
+        tasks: ['copy', 'cssmin', 'concat:vendor_header', 'concat:vendor_body', 'concat:app', 'ngtemplates'],
+        options: {
+          logConcurrentOutput: true
+        }
+      }
+    },
+    fileExists : {
+      scripts : vendor_body
+    },
     watch: {
       grunt: {
         files: 'Gruntfile.js',
-        tasks: ['jshint', 'ngtemplates', 'concat:app', 'uglify', 'less:app', 'copy', 'cssmin'],
+        tasks: ['concurrent:preFlight', 'concurrent:liftOff'],
         options: {
           interrupt: true,
           livereload: true
@@ -143,7 +207,7 @@ module.exports = function (grunt) {
       },
       html: {
         files: [
-          'public/index.html', 'app/*.html', 'app/**/*.html', 'app/**/**/*.html', 'app/**/**/**/*.html'
+          'index.html', 'app/*.html', 'app/**/*.html', 'app/**/**/*.html', 'app/**/**/**/*.html'
         ],
         tasks: ['ngtemplates'],
         options: {
@@ -152,16 +216,16 @@ module.exports = function (grunt) {
         }
       },
       vendor_header: {
-        files: '<%= uglify.vendor_header.src %>',
-        tasks: ['uglify:vendor_header'],
+        files: '<%= concat.vendor_header.files %>',
+        tasks: ['concat:vendor_header'],
         options: {
           interrupt: true,
           livereload: true
         }
       },
       vendor_body: {
-        files: '<%= uglify.vendor_body.src %>',
-        tasks: ['uglify:vendor_body'],
+        files: '<%= concat.vendor_body.files %>',
+        tasks: ['concat:vendor_body'],
         options: {
           interrupt: true,
           livereload: true
@@ -186,6 +250,9 @@ module.exports = function (grunt) {
   grunt.loadNpmTasks('grunt-contrib-copy');
   grunt.loadNpmTasks('grunt-contrib-cssmin');
   grunt.loadNpmTasks('grunt-angular-templates');
+  grunt.loadNpmTasks('grunt-concurrent');
+  grunt.loadNpmTasks('grunt-file-exists');
 
-  grunt.registerTask('default', ['jshint', 'ngtemplates', 'concat:app', 'uglify', 'less:app', 'copy', 'cssmin', 'watch']);
+  grunt.registerTask('default', ['fileExists', 'concurrent:preFlight', 'concurrent:liftOff', 'watch']);
+  grunt.registerTask('defaultWatchless', ['fileExists', 'concurrent:preFlight', 'concurrent:liftOff']);
 };
