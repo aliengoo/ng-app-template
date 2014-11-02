@@ -1,6 +1,8 @@
 .idea
 bower
 node_modules
-public
+public/js
+public/fonts
+public/styles
 less/*.css
 ng-app-template.iml
