@@ -3,9 +3,10 @@
 
   angular.module('faker').controller('FakerUser', FakerUser);
 
-  FakerUser.$inject = ['$scope', 'user'];
+  FakerUser.$inject = ['user'];
 
-  function FakerUser($scope, user) {
-    $scope.user = user;
+  function FakerUser(user) {
+    var vm = this;
+    vm.user = user;
   }
 }());

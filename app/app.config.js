@@ -18,14 +18,15 @@
 
     $httpProvider.interceptors.push('authInterceptorService');
 
-    // TODO : Uncomment to disable the spinner
-    //cfpLoadingBarProvider.includeSpinner = false;
+    // TODO : Spinner enable/disable
+    cfpLoadingBarProvider.includeSpinner = false;
 
 
     // TODO : Set the prefix for local storage
-    // localStorageServiceProvider.setPrefix('newPrefix');
+    localStorageServiceProvider.setPrefix('app');
 
     blockUIProvider.message = 'working...';
+
     $urlRouterProvider.otherwise('/home');
   }
 }());

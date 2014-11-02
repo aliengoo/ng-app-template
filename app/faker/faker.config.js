@@ -10,6 +10,7 @@
     $stateProvider.state('faker-user', {
       url : '/faker-user',
       controller : 'FakerUser',
+      controllerAs : 'vm',
       templateUrl : 'faker/faker-user.html',
       resolve : {
         user : ['fakerUserDataService', resolveUser]
