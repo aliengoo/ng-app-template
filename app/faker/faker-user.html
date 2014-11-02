@@ -1,0 +1,39 @@
+<div class="container" ng-cloak>
+  <div class="col-md-12">
+
+    <header class="page-header">
+      <h1 class="row">
+        <div class="col-md-10">
+          <span ng-show="user.name">{{user.name}}</span>
+          <span ng-hide="user.name" class="text-muted">Name is required</span>
+        </div>
+        <div class="col-md-2">
+          <img ng-src="{{user.avatar}}" class="avatar small"/>
+        </div>
+      </h1>
+    </header>
+
+    <form class="row" ng-show="user" novalidate>
+      <div class="col-md-6">
+        <bw-input type="text" ng-model="user.name" name="userName" class="medium" ng-required="true">
+          <label>Name</label>
+        </bw-input>
+
+        <bw-input type="text" ng-model="user.username" name="userUsername" class="medium" ng-required="true">
+          <label>User name</label>
+        </bw-input>
+
+        <bw-input type="email" ng-model="user.email" name="userEmail" class="medium">
+          <label>Email</label>
+        </bw-input>
+      </div>
+
+      <div class="col-md-6">
+
+      </div>
+
+      <pre>{{user | json}}</pre>
+    </form>
+
+  </div>
+</div>

@@ -4,9 +4,9 @@
 
   angular.module('bootstrapWidgets').factory('bwRenderHelpBlocks', bwRenderHelpBlocks);
 
-  bwRenderHelpBlocks.$inject = ['common', 'template'];
+  bwRenderHelpBlocks.$inject = ['template'];
 
-  function bwRenderHelpBlocks(common, template) {
+  function bwRenderHelpBlocks(template) {
     var that = {
       render : render
     };

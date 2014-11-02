@@ -1,4 +1,4 @@
-(function(){
+(function () {
 
   "use strict";
 
@@ -8,7 +8,7 @@
 
   function bwCompileFn(template, bwValidateAttrs, bwRenderErrors, bwRenderHelpBlocks) {
     var that = {
-      compileFn : compileFn
+      compileFn: compileFn
     };
 
     return that;
@@ -19,6 +19,10 @@
 
       var self = this;
 
+      self.nameIsValid = function (str) {
+        return /^\w+$/.test(str);
+      };
+
       self.requiredAttrs = requiredAttrs;
       self.templateStr = templateStr;
       self.preTemplateFn = preTemplateFn;
@@ -27,8 +31,15 @@
 
         bwValidateAttrs.validate($a, self.requiredAttrs, errors);
 
+        if ($a.hasOwnProperty('name')) {
+          if (!self.nameIsValid($a.name)) {
+            errors.push('\'name\' attribute should only contain letters and numbers');
+          }
+        }
+
         if (errors.length > 0) {
-          $e.html(bwRenderErrors.render($e.context.nodeName.toLowerCase() + " Errors", errors));
+
+          $e.html(bwRenderErrors.render($e.context.nodeName.toLowerCase() + " Errors", errors, $e));
           return;
         }
 
@@ -37,7 +48,7 @@
           classes: '',
           labels: '',
           helpBlocks: '',
-          name : $a.name,
+          name: $a.name,
           childFormName: $a.name + "Form"
         };
 
@@ -74,7 +85,7 @@
 
         $($e).find('label').addClass('control-label');
 
-        return function($s, $e, $a, form){
+        return function ($s, $e, $a, form) {
           $s.form = form;
 
           var element = angular.element($($e).find('[name="' + $a.name + '"]').first());

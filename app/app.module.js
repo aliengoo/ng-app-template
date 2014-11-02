@@ -29,6 +29,7 @@
     'auth-error',
     'server-error',
     'home',
-    'bootstrap-widgets-demo'
+    'bootstrap-widgets-demo',
+    'faker'
     ]);
 }());

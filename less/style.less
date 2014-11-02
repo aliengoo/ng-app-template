@@ -30,9 +30,20 @@
 
 
 div[ui-view] {
+  // allow for fixed navbar
+  margin-top : 30px;
   &.ng-enter {
     -webkit-animation: fadeIn 0.5s;
     animation: fadeIn 0.5s;
+  }
+}
+
+img {
+  &.avatar {
+    &.small {
+      width : 32px;
+      height: 32px;
+    }
   }
 }
 

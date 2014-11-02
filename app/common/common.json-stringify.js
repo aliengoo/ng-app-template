@@ -1,11 +1,11 @@
 (function(){
   "use strict";
 
-  angular.module('common').filter('json', json);
+  angular.module('common').filter('jsonStringify', jsonStringify);
 
-  json.$inject = [];
+  jsonStringify.$inject = [];
 
-  function json() {
+  function jsonStringify() {
     return function(data) {
       if (data) {
         return JSON.stringify(data, null, 2);

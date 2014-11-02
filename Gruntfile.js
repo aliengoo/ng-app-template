@@ -173,6 +173,28 @@ module.exports = function (grunt) {
     fileExists : {
       scripts : vendor_body
     },
+    express: {
+      options: {
+        // Override defaults here
+      },
+      dev: {
+        options: {
+          script: 'server.js',
+          debug : true
+        }
+      },
+      prod: {
+        options: {
+          script: 'server.js',
+          node_env: 'production'
+        }
+      },
+      test: {
+        options: {
+          script: 'server.js'
+        }
+      }
+    },
     watch: {
       grunt: {
         files: 'Gruntfile.js',
@@ -180,6 +202,13 @@ module.exports = function (grunt) {
         options: {
           interrupt: true,
           livereload: true
+        }
+      },
+      express: {
+        files:  [ 'server.js' ],
+        tasks:  [ 'express:dev' ],
+        options: {
+          spawn: false // for grunt-contrib-watch v0.5.0+, "nospawn: true" for lower versions. Without this option specified express won't be reloaded
         }
       },
       app: {
@@ -192,7 +221,7 @@ module.exports = function (grunt) {
       },
       html: {
         files: [
-          'index.html', 'app/*.html', 'app/**/*.html', 'app/**/**/*.html', 'app/**/**/**/*.html'
+          'public/index.html', 'app/*.html', 'app/**/*.html', 'app/**/**/*.html', 'app/**/**/**/*.html'
         ],
         tasks: ['ngtemplates'],
         options: {
@@ -237,7 +266,9 @@ module.exports = function (grunt) {
   grunt.loadNpmTasks('grunt-angular-templates');
   grunt.loadNpmTasks('grunt-concurrent');
   grunt.loadNpmTasks('grunt-file-exists');
+  grunt.loadNpmTasks('grunt-express-server');
 
   grunt.registerTask('default', ['fileExists', 'concurrent:preFlight', 'concurrent:liftOff', 'watch']);
+  grunt.registerTask('defaultWithExpress', ['fileExists', 'concurrent:preFlight', 'concurrent:liftOff', 'express:dev', 'watch']);
   grunt.registerTask('defaultWatchless', ['fileExists', 'concurrent:preFlight', 'concurrent:liftOff']);
 };

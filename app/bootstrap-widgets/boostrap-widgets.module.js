@@ -2,6 +2,6 @@
 
   "use strict";
 
-  angular.module('bootstrapWidgets', ['common']);
+  angular.module('bootstrapWidgets', ['ui.router', 'common']);
 
 }());
