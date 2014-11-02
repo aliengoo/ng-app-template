@@ -15,7 +15,7 @@ mongoose.connect('mongodb://localhost:27017/test');
 
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
-db.once('open', function callback () {
+db.once('open', function callback() {
   console.log('Yay!  The connection is open');
 });
 
@@ -27,17 +27,20 @@ app.param('collectionName', function (req, res, next, collectionName) {
 });
 
 app.get('/collections/:collectionName', function (req, res) {
-  req.collection.find({}).toArray(function(err, results) {
+
+  var callback = function (err, results) {
     if (err) {
       res.json(500, err);
     } else {
       res.json(results);
     }
-  });
+  };
+
+  req.collection.find({}).toArray(callback);
 });
 
 app.post('/collections/:collectionName', function (req, res) {
-  console.log(req);
+
   req.collection.save(req.body, function (err, result) {
     if (err) {
       res.json(500, err);
