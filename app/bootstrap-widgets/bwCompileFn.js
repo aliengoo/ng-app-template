@@ -15,7 +15,7 @@
 
     // implementation
 
-    function CompileFactory(requiredAttrs, templateStr, preTemplateFn) {
+    function CompileFactory(requiredAttrs, templateStr, preTemplateFn, preLinkFn) {
 
       var self = this;
 
@@ -86,6 +86,10 @@
         $($e).find('label').addClass('control-label');
 
         return function ($s, $e, $a, form) {
+          if (preLinkFn) {
+            preLinkFn($s, $e, $a, form);
+          }
+
           $s.form = form;
 
           var element = angular.element($($e).find('[name="' + $a.name + '"]').first());
@@ -117,8 +121,8 @@
       };
     }
 
-    function compileFn(requiredAttrs, templateStr, preTemplateFn) {
-      return new CompileFactory(requiredAttrs, templateStr, preTemplateFn).compile;
+    function compileFn(requiredAttrs, templateStr, preTemplateFn, preLinkFn) {
+      return new CompileFactory(requiredAttrs, templateStr, preTemplateFn, preLinkFn).compile;
     }
   }
 

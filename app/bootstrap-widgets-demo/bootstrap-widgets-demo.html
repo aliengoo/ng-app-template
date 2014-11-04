@@ -11,11 +11,16 @@
 
         <last-name ng-model="customer.lastName"></last-name>
 
+	      <bw-label-input ng-model="customer.labels" name="customerLabels">
+		      <label>Labels</label>
+	      </bw-label-input>
+
         <bw-radio-btns name="gender" ng-model="customer.gender">
           <radio-option value="">Unknown</radio-option>
           <radio-option value="male">Male</radio-option>
           <radio-option value="female">Female</radio-option>
         </bw-radio-btns>
+
       </div>
       <div class="col-md-6">
         <user-details ng-model="custom.details"></user-details>

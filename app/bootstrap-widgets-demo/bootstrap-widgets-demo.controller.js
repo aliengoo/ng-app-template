@@ -10,6 +10,7 @@
 
     customer.title = 'Mr';
     customer.gender = 'male';
+    customer.labels = ['arse'];
   }
 
 }());
