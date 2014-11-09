@@ -78,14 +78,18 @@
           $e.removeAttr($a.$attr[key]);
         });
 
+        // run preTemplateFn is provided
         if (self.preTemplateFn) {
           self.preTemplateFn($e, $a, data, template);
         }
 
+        // render
         var html = template.render(self.templateStr, data);
 
+        // overwrite HTML
         $e.html(html);
 
+        // ensure the label element has the control-label css class
         $($e).find('label').addClass('control-label');
 
         return function ($s, $e, $a, form) {
@@ -93,23 +97,29 @@
             preLinkFn($s, $e, $a, form);
           }
 
+          // set up form properties
           $s.form = form;
 
           var element = angular.element($($e).find('[name="' + $a.name + '"]').first());
 
+          // allow access to the element
           $s[$a.name + "Element"] = element;
 
+          // allow access to the ngModelController
           var ngModelCtrl = element.controller('ngModel');
           $s[$a.name] = ngModelCtrl;
 
+          // allow access to the "hasError"
           $s[$a.name + 'hasError'] = function () {
             return ngModelCtrl.$invalid && ngModelCtrl.$dirty;
           };
 
+          // allow access to the "hasSuccess"
           $s[$a.name + 'hasSuccess'] = function () {
             return ngModelCtrl.$valid && ngModelCtrl.$dirty;
           };
 
+          // handle startup, and the set state of model accordingly.
           var startupWatch = $s.$watch(function () {
             return ngModelCtrl.$modelValue;
           }, function (n) {
