@@ -7,11 +7,11 @@
   bwCompileFn.$inject = ['template', 'bwValidateAttrs', 'bwRenderErrors', 'bwRenderHelpBlocks'];
 
   function bwCompileFn(template, bwValidateAttrs, bwRenderErrors, bwRenderHelpBlocks) {
-    var that = {
+    var exports = {
       compileFn: compileFn
     };
 
-    return that;
+    return exports;
 
     // implementation
 
