@@ -6,34 +6,34 @@
   logger.$inject = ['$log'];
 
   function logger($log){
-    var that = {};
+    var exports = {};
 
-    that.error = $log.error;
-    that.warn = $log.warn;
-    that.info = $log.info;
+    exports.error = $log.error;
+    exports.warn = $log.warn;
+    exports.info = $log.info;
 
     // https://developer.mozilla.org/en-US/docs/Web/API/Console.dir
     if (console.dir) {
-      that.dir = console.dir;
+      exports.dir = console.dir;
     } else {
-      that.dir = $log.info;
+      exports.dir = $log.info;
     }
 
     // https://developer.mozilla.org/en-US/docs/Web/API/Console.table
     if (console.table) {
-      that.table = console.table;
+      exports.table = console.table;
     } else {
-      that.table = $log.info;
+      exports.table = $log.info;
     }
 
     // https://developer.mozilla.org/en-US/docs/Web/API/Console.trace
     if (console.trace) {
-      that.trace = console.trace;
+      exports.trace = console.trace;
     } else {
-      that.trace = $log.info;
+      exports.trace = $log.info;
     }
 
-    return that;
+    return exports;
   }
 
 }());

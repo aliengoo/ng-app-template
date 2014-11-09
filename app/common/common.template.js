@@ -10,11 +10,11 @@
    */
   function template() {
 
-    var that = {
+    var exports = {
       render : render
     };
 
-    return that;
+    return exports;
 
     // implementation
 

@@ -11,7 +11,7 @@
     that.$get = ['$location', '$log', 'flash', serverErrorService];
 
     function serverErrorService($location, $log, flash) {
-      var service = {
+      var exports = {
         responseError: responseError
       };
 
@@ -29,7 +29,7 @@
         return rejection;
       }
 
-      return service;
+      return exports;
     }
 
     return that;

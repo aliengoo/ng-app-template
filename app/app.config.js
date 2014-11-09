@@ -9,10 +9,9 @@
     'cfpLoadingBarProvider',
     'localStorageServiceProvider',
     'authInterceptorServiceProvider',
-    'serverErrorServiceProvider',
-    'blockUIProvider'];
+    'serverErrorServiceProvider'];
 
-  function config($httpProvider, $urlRouterProvider, cfpLoadingBarProvider, localStorageServiceProvider, authInterceptorServiceProvider, serverErrorServiceProvider, blockUIProvider) {
+  function config($httpProvider, $urlRouterProvider, cfpLoadingBarProvider, localStorageServiceProvider, authInterceptorServiceProvider, serverErrorServiceProvider) {
 
     authInterceptorServiceProvider.setLocationOnStatus('/auth-error', 401);
 
@@ -21,11 +20,8 @@
     // TODO : Spinner enable/disable
     cfpLoadingBarProvider.includeSpinner = false;
 
-
     // TODO : Set the prefix for local storage
     localStorageServiceProvider.setPrefix('app');
-
-    blockUIProvider.message = 'working...';
 
     $urlRouterProvider.otherwise('/home');
   }

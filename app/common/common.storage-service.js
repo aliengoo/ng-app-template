@@ -23,12 +23,12 @@
     $get.$inject = [];
 
     function $get() {
-      var service = {
+      var exports = {
         get : get,
         set : set
       };
 
-      return service;
+      return exports;
 
       ///////////////
 

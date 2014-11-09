@@ -6,13 +6,13 @@
   flash.$inject = ['localStorageService'];
 
   function flash(localStorageService) {
-    var that = {
+    var exports = {
       set : set,
       get : get,
       peek : peek
     };
 
-    return that;
+    return exports;
 
     // implementation
 

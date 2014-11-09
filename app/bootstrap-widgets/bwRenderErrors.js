@@ -8,9 +8,13 @@
 
   function bwRenderErrors(template, _) {
 
-    var that = {
+    var exports = {
       render : render
     };
+
+    return exports;
+
+    //////////
 
     var templateStr = '<div class="panel panel-danger">' +
       '<header class="panel-heading"><h4><%= title %></h4></header>' +
@@ -43,10 +47,5 @@
 
       return template.render(templateStr, config);
     }
-
-
-    return that;
   }
-
-
 }());

@@ -17,7 +17,9 @@
     'cfp.hotkeys',
     'LocalStorageModule',
     'ui.select2',
-    'blockUI',
+
+    // blockUI doesn't always play nice with ui-router
+    //'blockUI',
 
     // app modules
     'common',

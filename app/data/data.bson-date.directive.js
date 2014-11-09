@@ -1,4 +1,4 @@
-(function(){
+(function () {
   "use strict";
 
   /**
@@ -9,34 +9,55 @@
   bsonDate.$inject = ['moment'];
 
   function bsonDate(moment) {
-    return {
-      restrict : 'A',
-      require : 'ngModel',
-      link : function($s, $e, $a, ngModel) {
 
-        ngModel.$formatters.push(function(modelValue) {
-          if (modelValue && modelValue.hasOwnProperty('$date')){
-            if (angular.isNumber(modelValue.$date)){
-              var result = moment(modelValue.$date).format($a.bsonDate || 'YYYY-MM-DD');
-              return result;
-            }
-          }
+    var defaultDateFormat = 'YYYY-MM-DD';
 
-          return modelValue;
-        });
-
-        ngModel.$parsers.push(function (viewValue) {
-          var d = moment(viewValue, $a.bsonDate || 'YYYY-MM-DD');
-
-          if (d.isValid()) {
-            return {
-              $date : parseInt(d.format("X")) * 1000
-            };
-          }
-
-          return undefined;
-        });
-      }
+    var exports = {
+      restrict: 'A',
+      require: 'ngModel',
+      link: link
     };
+
+    return exports;
+
+    ///////////
+
+    function link($s, $e, $a, ngModel) {
+      ngModel.$formatters.push(formatter);
+      ngModel.$parsers.push(parser);
+
+      /**
+       * Format the model value
+       * @param modelValue
+       * @returns a model value
+       */
+      function formatter(modelValue) {
+        if (modelValue && modelValue.hasOwnProperty('$date')) {
+          if (angular.isNumber(modelValue.$date)) {
+            var result = moment(modelValue.$date).format($a.bsonDate || defaultDateFormat);
+            return result;
+          }
+        }
+
+        return modelValue;
+      }
+
+      /**
+       * Parse the view value
+       * @param viewValue
+       * @returns {*}
+       */
+      function parser(viewValue) {
+        var d = moment(viewValue, $a.bsonDate || defaultDateFormat);
+
+        if (d.isValid()) {
+          return {
+            $date: parseInt(d.format("X")) * 1000
+          };
+        }
+
+        return undefined;
+      }
+    }
   }
 }());

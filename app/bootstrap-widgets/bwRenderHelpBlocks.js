@@ -1,4 +1,4 @@
-(function(){
+(function () {
 
   "use strict";
 
@@ -7,10 +7,13 @@
   bwRenderHelpBlocks.$inject = ['template'];
 
   function bwRenderHelpBlocks(template) {
-    var that = {
-      render : render
+    var exports = {
+      render: render
     };
 
+    return exports;
+
+    //////////
 
     function render($e) {
 
@@ -43,7 +46,5 @@
 
       return helpBlocks;
     }
-
-    return that;
   }
 }());

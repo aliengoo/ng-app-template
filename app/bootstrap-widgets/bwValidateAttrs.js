@@ -7,9 +7,13 @@
   bwValidateAttrs.$inject = ['obj'];
 
   function bwValidateAttrs(obj) {
-    var that = {
+    var exports = {
       validate : validate
     };
+
+    return exports;
+
+    //////////
 
     function validate($a, requiredAttrs, errors) {
       var checkAttr = function(requiredAttr) {
@@ -27,8 +31,5 @@
         checkAttr(requiredAttrs);
       }
     }
-
-    return that;
   }
-
 }());
