@@ -1,4 +1,4 @@
-(function(){
+(function () {
   "use strict";
 
   angular.module('common').config(exceptionConfig);
@@ -12,7 +12,7 @@
   exceptionHandler.$inject = ['$delegate', '$injector'];
 
   function exceptionHandler($delegate, $injector) {
-    return function(exception, cause) {
+    return function (exception, cause) {
       $delegate(exception, cause);
 
       var errorData = {
@@ -29,7 +29,15 @@
 
       console.log(errorData);
 
-      $injector.get('toastr').error(exception.message, "Error!");
+      var message = '';
+
+      if (angular.isString(exception)) {
+        message = exception;
+      } else if (exception.hasOwnProperty('message')) {
+        message = exception.message;
+      }
+
+      $injector.get('toastr').error(message, "Error!");
     };
   }
 

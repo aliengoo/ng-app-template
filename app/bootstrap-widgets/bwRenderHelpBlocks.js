@@ -11,8 +11,6 @@
       render: render
     };
 
-    return exports;
-
     //////////
 
     function render($e) {
@@ -46,5 +44,7 @@
 
       return helpBlocks;
     }
+
+    return exports;
   }
 }());

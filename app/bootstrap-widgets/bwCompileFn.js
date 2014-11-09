@@ -15,7 +15,7 @@
 
     // implementation
 
-    function CompileFactory(requiredAttrs, templateStr, preTemplateFn, preLinkFn) {
+    function CompileFactory(requiredAttrs, templateStr, preTemplateFn, preLinkFn, preValidateFn) {
 
       var self = this;
 
@@ -29,6 +29,10 @@
       self.compile = function ($e, $a) {
         var errors = [];
 
+        if (preValidateFn) {
+          preValidateFn($e, $a, self.requiredAttrs, errors)
+        }
+
         bwValidateAttrs.validate($a, self.requiredAttrs, errors);
 
         if ($a.hasOwnProperty('name')) {
@@ -38,7 +42,6 @@
         }
 
         if (errors.length > 0) {
-
           $e.html(bwRenderErrors.render($e.context.nodeName.toLowerCase() + " Errors", errors, $e));
           return;
         }
@@ -121,8 +124,8 @@
       };
     }
 
-    function compileFn(requiredAttrs, templateStr, preTemplateFn, preLinkFn) {
-      return new CompileFactory(requiredAttrs, templateStr, preTemplateFn, preLinkFn).compile;
+    function compileFn(requiredAttrs, templateStr, preTemplateFn, preLinkFn, preValidateFn) {
+      return new CompileFactory(requiredAttrs, templateStr, preTemplateFn, preLinkFn, preValidateFn).compile;
     }
   }
 

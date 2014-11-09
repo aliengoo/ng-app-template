@@ -11,7 +11,11 @@
 
         <last-name ng-model="customer.lastName"></last-name>
 
-	      <bw-label-input ng-model="customer.labels" name="customerLabels">
+	      <bw-label-input
+          ng-model="customer.labels"
+          name="customerLabels"
+          id="customerLabels"
+          tags="customerLabelsTags">
 		      <label>Labels</label>
 	      </bw-label-input>
 

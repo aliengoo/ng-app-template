@@ -12,7 +12,7 @@
       render : render
     };
 
-    return exports;
+
 
     //////////
 
@@ -47,5 +47,7 @@
 
       return template.render(templateStr, config);
     }
+
+    return exports;
   }
 }());
