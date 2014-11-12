@@ -30,7 +30,7 @@
         var errors = [];
 
         if (preValidateFn) {
-          preValidateFn($e, $a, self.requiredAttrs, errors)
+          preValidateFn($e, $a, self.requiredAttrs, errors);
         }
 
         bwValidateAttrs.validate($a, self.requiredAttrs, errors);
