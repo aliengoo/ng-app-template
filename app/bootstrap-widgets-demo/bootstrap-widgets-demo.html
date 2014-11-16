@@ -11,6 +11,46 @@
 
         <last-name ng-model="customer.lastName"></last-name>
 
+        <bw-select2 ng-model="customer.mainOccupation" name="mainOccupation">
+          <label>
+            Main occupation
+          </label>
+          <option value="Tinker">Tinker</option>
+          <option value="Tailor">Tailor</option>
+          <option value="Soldier">Soldier</option>
+          <option value="Spy">Spy</option>
+        </bw-select2>
+        <bw-select2 ng-model="customer.interests" name="interests" multiple>
+          <label>
+            Interests
+          </label>
+          <option value="Tinkering">Tinkering</option>
+          <option value="Tailoring">Tailoring</option>
+          <option value="Soldiering">Soldiering</option>
+          <option value="Spying">Spying</option>
+        </bw-select2>
+
+        <bw-select2 ng-model="customer.favouriteMovies" name="favouriteMovies" multiple>
+          <label>
+            Movies
+          </label>
+          <option value="Star Wars">Star Wars</option>
+          <option value="The Empire Strikes Back">The Empire Strikes Back</option>
+          <option value="Return of the Jedi">Return of the Jedi</option>
+        </bw-select2>
+
+        <bw-select2 ng-model="customer.device" name="device" multiple>
+          <label>
+            Device
+          </label>
+
+          <option value="{{device.id}}" ng-repeat="device in availableDevices">{{device.text}}</option>
+
+        </bw-select2>
+
+
+
+
 	      <bw-label-input
           ng-model="customer.labels"
           name="customerLabels"

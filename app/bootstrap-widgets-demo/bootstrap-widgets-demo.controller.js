@@ -13,6 +13,24 @@
     customer.labels = ['arse', 'richard'];
 
     $scope.customerLabelsTags = customerLabels;
+
+    $scope.mainOccupationSelect2Options = {};
+    $scope.interestsSelect2Options = {};
+
+    $scope.availableDevices = [
+      {
+        'id' : 'android',
+        'text' : 'Android'
+      },
+      {
+        'id' : 'ios',
+        'text' : 'iOS'
+      },
+      {
+        'id' : 'windowsphone',
+        'text' : 'Windows Phone'
+      }
+    ];
   }
 
 }());
