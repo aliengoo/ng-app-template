@@ -49,8 +49,6 @@
         </bw-select2>
 
 
-
-
 	      <bw-label-input
           ng-model="customer.labels"
           name="customerLabels"
@@ -64,6 +62,11 @@
           <radio-option value="male">Male</radio-option>
           <radio-option value="female">Female</radio-option>
         </bw-radio-btns>
+
+        <bw-input name="state" ng-model="customer.state" typeahead="state for state in states | filter:$viewValue | limitTo:8>
+          <label>State</label>
+
+        </bw-input>
 
       </div>
       <div class="col-md-6">
