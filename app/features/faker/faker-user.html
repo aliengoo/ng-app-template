@@ -1,0 +1,59 @@
+<div class="container" ng-cloak>
+  <div class="col-md-12">
+
+    <header class="page-header">
+      <h1 class="row">
+        <div class="col-md-12" ng-show="vm.user.name">
+	        <img ng-src="{{vm.user.avatar}}" class="avatar medium"/>
+	        <span>{{vm.user.name}}</span>
+        </div>
+
+	      <div class="col-md-12" ng-hide="vm.user.name">
+		      <span class="text-muted">Name is required</span>
+	      </div>
+
+
+      </h1>
+    </header>
+
+    <form class="row" ng-show="vm.user" novalidate>
+      <div class="col-md-6">
+	      <header>
+		      <h4>Personal Information</h4>
+	      </header>
+        <bw-input type="text" ng-model="vm.user.name" name="userName" class="medium" ng-required="true">
+          <label>Name</label>
+        </bw-input>
+
+        <bw-input type="text" ng-model="vm.user.username" name="userUsername" class="medium" ng-required="true">
+          <label>User name</label>
+        </bw-input>
+
+        <bw-input type="email" ng-model="vm.user.email" name="userEmail" class="medium">
+          <label>Email</label>
+        </bw-input>
+
+	      <bw-input type="text" ng-model="vm.user.phone" name="userPhone" class="medium">
+          <label>Phone</label>
+        </bw-input>
+
+	      <bw-input type="text" ng-model="vm.user.website" name="userWebsite" placeholder="Website" class="medium">
+		      <label>Website</label>
+	      </bw-input>
+      </div>
+
+      <div class="col-md-6">
+	    	<user-address address="vm.user.address"></user-address>
+	      <company company="vm.user.company"></company>
+      </div>
+
+
+
+    </form>
+	  <!--<pre class="row">{{vm.user | json}}</pre>-->
+
+
+
+
+  </div>
+</div>
