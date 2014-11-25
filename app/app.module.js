@@ -12,7 +12,7 @@
     'ui.utils',
     'ui.bootstrap',
     'angular-loading-bar',
-    'angular-toastr',
+    'toastr',
     'cfp.hotkeys',
     'LocalStorageModule',
     'ui.select2',
@@ -21,8 +21,8 @@
     //'blockUI',
 
     // app modules
-    'common',
-    'data',
+    'infrastructure',
+    'mongodb',
     'bootstrapWidgets',
 
     // app features

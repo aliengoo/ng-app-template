@@ -36,15 +36,15 @@ module.exports = function (grunt) {
       app: {
         files: {
           'public/js/app.concat.js': [
-            'app/common/*.module.js',
-            'app/common/*.js',
-            'app/auth/*.module.js',
-            'app/auth/*.auth-interceptor-service.js',
-            'app/auth/*.js',
-            'app/data/*.module.js',
-            'app/data/*.js',
-            'app/bootstrap-widgets/*.module.js',
-            'app/bootstrap-widgets/*.js',
+            'app/modules/lodash/*.module.js',
+            'app/modules/momentjs/*.module.js',
+            'app/modules/stringjs/*.module.js',
+            'app/modules/mongodb/*.module.js',
+            'app/modules/infrastructure/*.module.js',
+            'app/modules/auth/*.module.js',
+            'app/modules/bootstrap-widgets/*.module.js',
+            'app/features/**/*.module.js',
+            'app/features/**/*.js',
             'app/app.module.js',
             'app/*.js',
             'app/**/*.module.js',
@@ -81,7 +81,6 @@ module.exports = function (grunt) {
       combine: {
         files: {
           'public/styles/style.min.css': [
-            'bower/toastr/toastr.min.css',
             'bower/animate.css/animate.min.css',
             'bower/angular-hotkeys/build/hotkeys.min.css',
             'bower/angular-loading-bar/build/loading-bar.min.css',
