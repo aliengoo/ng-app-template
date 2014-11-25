@@ -6,7 +6,7 @@
   function company(){
     return {
       restrict : 'E',
-      templateUrl : 'features/faker/faker.company.html',
+      templateUrl : 'app/features/faker/faker.company.html',
       scope : {
         company : '='
       }

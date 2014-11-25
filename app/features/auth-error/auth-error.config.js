@@ -7,7 +7,7 @@
 
   function config($stateProvider) {
     $stateProvider.state('auth-error', {
-      templateUrl : 'features/auth-error/auth-error.html',
+      templateUrl : 'app/features/auth-error/auth-error.html',
       controller : 'AuthError',
       controllerAs : 'vm'
     });

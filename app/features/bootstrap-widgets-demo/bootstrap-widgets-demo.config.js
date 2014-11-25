@@ -16,7 +16,7 @@
 
     $stateProvider.state('bootstrap-widgets-demo', {
       url: '/bootstrap-widgets-demo',
-      templateUrl: 'features/bootstrap-widgets-demo/bootstrap-widgets-demo.html',
+      templateUrl: 'app/features/bootstrap-widgets-demo/bootstrap-widgets-demo.html',
       controller: 'BootstrapWidgetsDemo',
       resolve : {
         customerLabels : ['$q', resolveCustomerLabels]

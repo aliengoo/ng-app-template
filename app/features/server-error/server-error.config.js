@@ -10,7 +10,7 @@
     $stateProvider.state('server-error', {
       controller : 'ServerError',
       controllerAs : 'vm',
-      templateUrl : 'features/server-error/server-error.html'
+      templateUrl : 'app/features/server-error/server-error.html'
     });
 
   }

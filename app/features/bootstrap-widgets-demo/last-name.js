@@ -7,7 +7,7 @@
   function lastName() {
     return {
       restrict: 'E',
-      templateUrl: 'features/bootstrap-widgets-demo/last-name.html',
+      templateUrl: 'app/features/bootstrap-widgets-demo/last-name.html',
       scope: {
         ngModel: '='
       }

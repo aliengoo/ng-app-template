@@ -7,7 +7,7 @@
   function firstName() {
     return {
       restrict : 'E',
-      templateUrl : 'features/bootstrap-widgets-demo/first-name.html',
+      templateUrl : 'app/features/bootstrap-widgets-demo/first-name.html',
       scope : {
         ngModel : '='
       }

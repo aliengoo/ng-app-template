@@ -36,13 +36,15 @@ module.exports = function (grunt) {
       app: {
         files: {
           'public/js/app.concat.js': [
-            'app/modules/lodash/*.module.js',
-            'app/modules/momentjs/*.module.js',
-            'app/modules/stringjs/*.module.js',
-            'app/modules/mongodb/*.module.js',
-            'app/modules/infrastructure/*.module.js',
-            'app/modules/auth/*.module.js',
-            'app/modules/bootstrap-widgets/*.module.js',
+            'app-modules/lodash/*.module.js',
+            'app-modules/momentjs/*.module.js',
+            'app-modules/stringjs/*.module.js',
+            'app-modules/mongodb/*.module.js',
+            'app-modules/infrastructure/*.module.js',
+            'app-modules/auth/*.module.js',
+            'app-modules/bootstrap-widgets/*.module.js',
+            'app-modules/**/*.js',
+            'app-modules/**/**/*.js',
             'app/features/**/*.module.js',
             'app/features/**/*.js',
             'app/app.module.js',
@@ -69,8 +71,16 @@ module.exports = function (grunt) {
     },
     ngtemplates: {
       app: {
-        cwd: 'app',
-        src: ['**/*.html', '**/**/*.html', '**/**/**/*.html', '**/**/**/**/*.html'],
+        src: [
+          'app/*.html',
+          'app/**/*.html',
+          'app/**/**/*.html',
+          'app/**/**/**/*.html',
+          'app-modules/*.html',
+          'app-modules/**/*.html',
+          'app-modules/**/**/*.html',
+          'app-modules/**/**/**/*.html'
+        ],
         dest: 'public/js/app.templates.js',
         options: {
           htmlmin: { collapseWhitespace: true, collapseBooleanAttributes: true }
@@ -220,7 +230,14 @@ module.exports = function (grunt) {
       },
       html: {
         files: [
-          'public/index.html', 'app/*.html', 'app/**/*.html', 'app/**/**/*.html', 'app/**/**/**/*.html'
+          'public/index.html',
+          'app/*.html',
+          'app/**/*.html',
+          'app/**/**/*.html',
+          'app/**/**/**/*.html',
+          'app-modules/**/*.html',
+          'app-modules/**/**/*.html',
+          'app-modules/**/**/**/*.html'
         ],
         tasks: ['ngtemplates'],
         options: {

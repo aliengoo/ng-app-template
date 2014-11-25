@@ -8,7 +8,7 @@
 
     return {
       restrict: 'E',
-      templateUrl: 'features/bootstrap-widgets-demo/user-details.html',
+      templateUrl: 'app/features/bootstrap-widgets-demo/user-details.html',
       scope: {
         ngModel: '='
       }

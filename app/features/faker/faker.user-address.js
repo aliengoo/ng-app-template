@@ -9,7 +9,7 @@
       scope: {
         address: '='
       },
-      templateUrl: 'features/faker/faker.user-address.html'
+      templateUrl: 'app/features/faker/faker.user-address.html'
     };
   }
 

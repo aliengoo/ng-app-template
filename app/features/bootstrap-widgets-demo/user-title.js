@@ -7,7 +7,7 @@
   function userTitle() {
     return {
       restrict : 'E',
-      templateUrl : 'features/bootstrap-widgets-demo/user-title.html',
+      templateUrl : 'app/features/bootstrap-widgets-demo/user-title.html',
       scope : {
         ngModel : '='
       }

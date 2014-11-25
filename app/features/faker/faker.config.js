@@ -11,7 +11,7 @@
       url : '/faker-user',
       controller : 'FakerUser',
       controllerAs : 'vm',
-      templateUrl : 'features/faker/faker-user.html',
+      templateUrl : 'app/features/faker/faker-user.html',
       resolve : {
         user : ['fakerUserDataService', resolveUser]
       }
