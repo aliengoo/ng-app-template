@@ -8,12 +8,11 @@
     'ngAnimate',
 
     // third-party modules
-    'toastr',
-    'ngFx',
     'ui.router',
     'ui.utils',
     'ui.bootstrap',
     'angular-loading-bar',
+    'angular-toastr',
     'cfp.hotkeys',
     'LocalStorageModule',
     'ui.select2',
