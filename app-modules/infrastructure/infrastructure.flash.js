@@ -3,9 +3,9 @@
 
   angular.module('infrastructure').factory('flash', flash);
 
-  flash.$inject = ['localStorageService'];
+  flash.$inject = ['storageService'];
 
-  function flash(localStorageService) {
+  function flash(storageService) {
     var exports = {
       set: set,
       get: get,
@@ -17,22 +17,22 @@
     // implementation
 
     function set(message) {
-      localStorageService.set('flash', message);
+      storageService.set('flash', message);
 
       return message;
     }
 
     function get() {
 
-      var message = localStorageService.get('flash');
+      var message = storageService.get('flash');
 
-      localStorageService.set('flash', undefined);
+      storageService.set('flash', undefined);
 
       return message;
     }
 
     function peek() {
-      return localStorageService.get('flash');
+      return storageService.get('flash');
     }
   }
 }());

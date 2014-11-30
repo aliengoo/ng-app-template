@@ -6,7 +6,7 @@
   function bwTypeahead(){
     return {
       restrict : 'E',
-      template : function(){
+      template : function() {
         var template =
           '<div class="form-group" ng-form="<%= childFormName %>" ng-class="{\'has-error\' : <%= name %>hasError(), \'has-success\' : <%= name %>hasSuccess()}">' +
           '<span><%= labels %></span>' +
@@ -15,9 +15,6 @@
           '</div>';
 
         return template;
-      },
-      link : function($s, $e, $a){
-
       }
     };
   }
