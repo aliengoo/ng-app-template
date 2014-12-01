@@ -1,0 +1,37 @@
+.form-group .bw-input.x-small {
+  width: 50px;
+}
+.form-group .bw-input.small {
+  width: 200px;
+}
+.form-group .bw-input.medium {
+  width: 350px;
+}
+.form-group .bw-input.large {
+  width: 500px;
+}
+.form-group .bw-input.error {
+  border: 1px solid #dc143c;
+  border-radius: 5px;
+}
+.form-group span.help-block {
+  font-size: 13px;
+}
+div[ui-view] {
+  margin-top: 30px;
+}
+div[ui-view].ng-enter {
+  -webkit-animation: fadeIn 0.5s;
+  animation: fadeIn 0.5s;
+}
+div[ui-view].starting-up {
+  margin-top: 30px;
+}
+img.avatar.small {
+  width: 32px;
+  height: 32px;
+}
+img.avatar.medium {
+  width: 48px;
+  height: 48px;
+}

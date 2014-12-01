@@ -1,0 +1,36 @@
+.form-group
+  .bw-input
+    &.x-small
+      width : 50px
+    &.small
+      width : 200px
+    &.medium
+      width : 350px
+    &.large
+      width : 500px
+    &.error
+      border: 1px solid crimson
+      border-radius: 5px
+  span
+    &.help-block
+      font-size : 13px
+
+div[ui-view]
+  // allow for fixed navbar
+  margin-top : 30px
+  &.ng-enter
+    -webkit-animation: fadeIn 0.5s
+    animation: fadeIn 0.5s
+
+  &.starting-up
+    margin-top : 30px
+
+img
+  &.avatar
+    &.small
+      width : 32px
+      height: 32px
+
+    &.medium
+      width : 48px
+      height: 48px
