@@ -11,7 +11,7 @@
       require : 'ngModel',
       link : function($s, $e, $a, ngModel) {
         if (!$a.uniqueValueValidator) {
-          $log.error('uniqueValueValidator');
+          $log.error('uniqueValueValidator requires a base url, e.g. http://www.mywebsite.com/api/is-user-unique?u=');
           return;
         }
 

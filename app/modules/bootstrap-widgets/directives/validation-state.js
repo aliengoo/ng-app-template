@@ -36,7 +36,7 @@
         if (!ngModel) {
           return;
         }
-q
+
         ngModel.$viewChangeListeners.push(function () {
           $e.removeClass('has-error');
           $e.removeClass('has-success');

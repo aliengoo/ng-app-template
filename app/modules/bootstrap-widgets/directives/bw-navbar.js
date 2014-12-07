@@ -24,7 +24,7 @@
           brand : $e.find('brand').html()
         };
 
-        $e.html(template.render($templateCache.get('app-modules/bootstrap-widgets/directives/bw-navbar.html'), templateData));
+        $e.html(template.render($templateCache.get('app/modules/bootstrap-widgets/directives/bw-navbar.html'), templateData));
 
         return function($s) {
 

@@ -1,0 +1,16 @@
+<div class="container">
+  <header>
+    <h1>Hany Widgets Demo</h1>
+  </header>
+
+  <div class="row">
+    <div class="col-md-12">
+      <form novalidate name="f">
+        <div class="form-group">
+          <label class="control-label">First name</label>
+          <input type="text" ng-model="customer.firstName" class="form-control" unique-value-validator="/api/check-user-name?u=">
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
