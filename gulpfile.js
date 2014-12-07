@@ -1,3 +1,5 @@
+// WORK IN PROGRESS, USE GRUNT INSTEAD
+
 var gulp = require('gulp'),
   concat = require('gulp-concat'),
   watch = require('gulp-watch'),
